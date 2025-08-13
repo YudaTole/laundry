@@ -185,16 +185,20 @@
       logoInitials.textContent = initials || 'LG';
     }
 
-    const byId = id => document.getElementById(id);
-    const heroImg = byId('heroImg');
-    heroImg.src = CONFIG.images.hero;
-    byId('imgL1').src = CONFIG.images.layanan1;
-    byId('imgL2').src = CONFIG.images.layanan2;
-    byId('imgL3').src = CONFIG.images.layanan3;
-    byId('imgL4').src = CONFIG.images.layanan4;
-
-    const gmap = byId('gmap');
-    if (CONFIG.mapsEmbedSrc) gmap.src = CONFIG.mapsEmbedSrc;
+  const CONFIG = {
+  brand: 'FreshClean Laundry',
+  logoUrl: '', // optional logo
+  waNumber: '62812XXXXXXX',
+  waDefaultMsg: 'Halo, saya mau pesan layanan laundry.',
+  images: {
+    hero: 'https://files.catbox.moe/xxxxx.jpg',      // Ganti xxxxx dengan file Catbox kamu
+    layanan1: 'https://files.catbox.moe/yyyyy.jpg',
+    layanan2: 'https://files.catbox.moe/zzzzz.jpg',
+    layanan3: 'https://files.catbox.moe/aaaaa.jpg',
+    layanan4: 'https://files.catbox.moe/bbbbb.jpg'
+  },
+  mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=PASTE_EMBED_CODE_DI_SINI'
+};
 
     // Mobile menu toggle
     const menuBtn = byId('menuBtn');
