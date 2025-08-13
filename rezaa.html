@@ -80,18 +80,25 @@
     footer{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 0;color:var(--muted)}
 
     /* Mobile */
-    .hamburger{display:none;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);align-items:center;justify-content:center}
-    .hamburger span{width:22px;height:2px;background:#e5e7eb;position:relative;display:block}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#e5e7eb}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
+  .hamburger.active span {
+  background: transparent;
+}
+.hamburger.active span::before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span::after {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
-    @media (max-width:1024px){.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}.hero .grid{grid-template-columns:1fr}}
-    @media (max-width:640px){
-      .nav-links{display:none;position:absolute;left:1rem;right:1rem;top:calc(var(--header-h) + 8px);background:rgba(2,6,23,.96);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.6rem;flex-direction:column}
-      .nav-links a{padding:.8rem}
-      .hamburger{display:inline-flex}
-      .grid4,.grid3{grid-template-columns:1fr}
-    }
+/* Menu responsive */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.nav-links.active {
+  display: flex; /* atau block jika ingin vertikal */
+  flex-direction: column;
+}
 
     /* Section anchors offset (untuk header sticky) */
     section{scroll-margin-top:calc(var(--header-h) + 14px)}
