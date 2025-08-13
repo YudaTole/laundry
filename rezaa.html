@@ -1,12 +1,15 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FreshClean Laundry — Cuci Kiloan & Antar-Jemput</title>
   <meta name="description" content="Laundry bersih, wangi, dan cepat. Cuci kiloan, setrika rapi, express 6–12 jam, dan antar-jemput." />
-  <meta name="theme-color" content="#0ea5e9" />  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
     :root{
       --bg:#0b1220; --card:#0f172a; --muted:#93a4b7; --text:#e6edf5; --accent:#0ea5e9; --accent2:#60a5fa; --ring:rgba(14,165,233,.35);
       --header-h:64px;
@@ -25,7 +28,7 @@
     .nav-links a{padding:.5rem .8rem;border-radius:12px;opacity:.92}
     .nav-links a:hover{background:rgba(255,255,255,.06)}
 
-    /* Logo (bulat, teks saja) */
+    /* Logo */
     .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.2px}
     .logo{
       width:36px;height:36px;border-radius:999px;display:grid;place-items:center;
@@ -43,7 +46,7 @@
     .btn.primary{background:linear-gradient(180deg,#38bdf8,#0ea5e9);border-color:transparent;color:#001018}
     .btn.whatsapp{background:linear-gradient(180deg,#34d399,#10b981);border-color:transparent;color:#03140f}
 
-    /* Sections: full screen + scroll snap */
+    /* Sections */
     main{scroll-snap-type:y mandatory}
     section{min-height:100svh;scroll-snap-align:start;display:grid;align-content:center}
     section .inner{padding:clamp(16px,2.5vw,28px) 0}
@@ -84,294 +87,72 @@
     .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#e5e7eb}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
 
-    @media (max-width:1024px){.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}.hero .grid{grid-template-columns:1fr}}
+    /* Fix menu & maps responsive */
+    @media (max-width:1024px){
+      .grid4{grid-template-columns:repeat(2,1fr)}
+      .grid3{grid-template-columns:repeat(2,1fr)}
+      .hero .grid{grid-template-columns:1fr}
+    }
     @media (max-width:640px){
-      .nav-links{display:none;position:absolute;left:1rem;right:1rem;top:calc(var(--header-h) + 8px);background:rgba(2,6,23,.96);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.6rem;flex-direction:column}
-      .nav-links a{padding:.8rem}
-      .hamburger{display:inline-flex}
-      .grid4,.grid3{grid-template-columns:1fr}
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: calc(var(--header-h) + 8px);
+        background: rgba(2,6,23,.96);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 16px;
+        padding: .6rem;
+        flex-direction: column;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {padding: .8rem;}
+      .hamburger {display: inline-flex;}
+      .grid4, .grid3 {grid-template-columns: 1fr;}
+      #gmap {height: 40vh;}
     }
 
-    /* Section anchors offset (untuk header sticky) */
+    /* Section anchors offset */
     section{scroll-margin-top:calc(var(--header-h) + 14px)}
 
+    /* Forms */
     input,textarea{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(15,23,42,.65);color:#e5e7eb;outline:none}
     input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
     label{font-size:.95rem;color:var(--muted)}
-  </style></head>
-<body>
-  <header>
-    <div class="container">
-      <nav class="nav">
-        <a href="#home" class="brand">
-          <span class="logo" id="logo">
-            <!-- Jika ingin pakai gambar dari catbox, isi CONFIG.logoUrl di bawah. Default: lingkaran teks. -->
-            <span id="logoInitials">FC</span>
-            <img id="logoImg" alt="Logo" />
-          </span>
-          <span id="brand">FreshClean Laundry</span>
-        </a>
-        <div id="navLinks" class="nav-links">
-          <a href="#layanan">Layanan</a>
-          <a href="#harga">Harga</a>
-          <a href="#lokasi">Lokasi</a>
-          <a href="#testimoni">Testimoni</a>
-          <a href="#kontak">Kontak</a>
-          <a class="btn whatsapp" id="waTop" href="#">Pesan WA</a>
-        </div>
-        <button aria-label="Menu" class="hamburger" id="menuBtn"><span></span></button>
-      </nav>
-    </div>
-  </header>  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container inner">
-        <div class="grid">
-          <div>
-            <span class="badge">🧺 Bersih • Wangi • Tepat Waktu</span>
-            <h1 class="title">Laundry Express Antar‑Jemput — rapi dan wangi setiap hari</h1>
-            <p class="subtitle">Cuci kiloan, setrika rapi, dan layanan ekspres 6–12 jam*. Kurir siap jemput & antar kembali. Pesan cepat via WhatsApp.</p>
-            <div class="cta" style="display:flex; gap:.8rem; flex-wrap:wrap;">
-              <a class="btn whatsapp" id="waHero" href="#">Pesan via WhatsApp</a>
-              <a class="btn" href="#layanan">Lihat Layanan</a>
-            </div>
-            <small class="muted">*Estimasi waktu menyesuaikan antrian.</small>
-          </div>
-          <div>
-            <!-- Ganti hero image dengan link catbox kamu (CONFIG.images.hero) -->
-            <img class="hero-img" id="heroImg" src="" alt="Pekerja laundry melipat pakaian bersih" />
-          </div>
-        </div>
-      </div>
-    </section><!-- Layanan -->
-<section id="layanan">
-  <div class="container inner">
-    <h2 class="section-title">Layanan Kami</h2>
-    <p class="muted">Pilih layanan sesuai kebutuhanmu.</p>
-    <div class="grid4" style="margin-top:1rem;">
-      <article class="card">
-        <img style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);aspect-ratio:16/9;object-fit:cover" id="imgL1" alt="Cuci kiloan" />
-        <h3>🧼 Cuci Kiloan</h3>
-        <p>Bersih, wangi, dan terjangkau untuk pakaian harian.</p>
-      </article>
-      <article class="card">
-        <img style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);aspect-ratio:16/9;object-fit:cover" id="imgL2" alt="Setrika rapi" />
-        <h3>🧯 Setrika Rapi</h3>
-        <p>Pakaian licin dan rapi, siap langsung dipakai.</p>
-      </article>
-      <article class="card">
-        <img style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);aspect-ratio:16/9;object-fit:cover" id="imgL3" alt="Express" />
-        <h3>⚡ Express</h3>
-        <p>Butuh cepat? Selesai 6–12 jam sesuai antrian.</p>
-      </article>
-      <article class="card">
-        <img style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);aspect-ratio:16/9;object-fit:cover" id="imgL4" alt="Antar jemput" />
-        <h3>🚚 Antar‑Jemput</h3>
-        <p>Kurir kami ambil & kirim kembali tepat waktu.</p>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- Harga -->
-<section id="harga">
-  <div class="container inner">
-    <h2 class="section-title">Harga Paket</h2>
-    <p class="muted">Sesuaikan angka di bawah dengan harga bisnis kamu.</p>
-    <div class="grid3" style="margin-top:1rem;">
-      <div class="card">
-        <h3>Hemat</h3>
-        <p class="price">Rp7.000<span style="font-size: .95rem; font-weight:600; color: var(--muted);">/100gr</span></p>
-        <ul>
-          <li>— Cuci + Kering</li>
-          <li>— Wangi tahan lama</li>
-          <li>— Estimasi 24 jam</li>
-        </ul>
-        <p><a class="btn" id="waPkg1" href="#">Pilih Paket</a></p>
-      </div>
-      <div class="card" style="border:2px solid var(--accent); box-shadow: 0 10px 28px var(--ring);">
-        <h3>Favorit</h3>
-        <p class="price">Rp9.000<span style="font-size: .95rem; font-weight:600; color: var(--muted);">/100gr</span></p>
-        <ul>
-          <li>— Cuci + Kering + Lipat</li>
-          <li>— Pengharum premium</li>
-          <li>— Estimasi 24 jam</li>
-        </ul>
-        <p><a class="btn primary" id="waPkg2" href="#">Pilih Paket</a></p>
-      </div>
-      <div class="card">
-        <h3>Express</h3>
-        <p class="price">Rp13.000<span style="font-size: .95rem; font-weight:600; color: var(--muted);">/100gr</span></p>
-        <ul>
-          <li>— Selesai 6–12 jam*</li>
-          <li>— Prioritas antrian</li>
-          <li>— Notifikasi siap ambil/kirim</li>
-        </ul>
-        <p><a class="btn" id="waPkg3" href="#">Pilih Paket</a></p>
-      </div>
-    </div>
-    <small class="muted">*Waktu express menyesuaikan volume antrian.</small>
-  </div>
-</section>
-
-<!-- Lokasi (Google Maps) -->
-<section id="lokasi">
-  <div class="container inner">
-    <h2 class="section-title">Lokasi Kami</h2>
-    <p class="text-muted">Silakan kunjungi kami di lokasi berikut:</p>
-    
-    <div style="width: 100%; max-width: 100%;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.180895479542!2d107.04702107442573!3d-6.239873661101353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698f0004276133%3A0xb7e0bdf7467150e1!2sApril%20Parfume!5e0!3m2!1sid!2sid!4v1755080513500!5m2!1sid!2sid"
-        width="100%"
-        height="100%"
-        style="border:0; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Testimoni -->
-<section id="testimoni">
-  <div class="container inner">
-    <h2 class="section-title">Apa Kata Pelanggan</h2>
-    <div class="grid3" style="margin-top:1rem">
-      <article class="card"><p>“Bersih, wangi, dan cepat. Kurirnya sopan!”</p><p class="muted">— Rina</p></article>
-      <article class="card"><p>“Harga masuk akal, kemeja saya rapi setiap hari.”</p><p class="muted">— Andi</p></article>
-      <article class="card"><p>“Layanan express-nya nolong banget pas darurat.”</p><p class="muted">— Sari</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- Kontak -->
-<section id="kontak">
-  <div class="container inner">
-    <h2 class="section-title">Kontak & Pemesanan</h2>
-    <p class="muted">Isi form atau chat WhatsApp untuk respon cepat.</p>
-    <form id="contactForm" style="margin-top: 1rem; display: grid; gap: .9rem; max-width: 640px;">
-      <div>
-        <label for="name">Nama</label>
-        <input id="name" name="name" placeholder="Nama kamu" required />
-      </div>
-      <div>
-        <label for="phone">No. HP</label>
-        <input id="phone" name="phone" inputmode="tel" placeholder="08xxxxxxxxxx" />
-      </div>
-      <div>
-        <label for="message">Pesan</label>
-        <textarea id="message" name="message" rows="4" placeholder="Mau layanan apa? (kiloan/setrika/express)" required></textarea>
-      </div>
-      <div style="display:flex; gap:.6rem; align-items:center; flex-wrap:wrap;">
-        <button type="submit" class="btn primary">Kirim</button>
-        <a class="btn whatsapp" id="waContact" href="#">Chat WhatsApp</a>
-        <span id="formStatus" class="muted" aria-live="polite"></span>
-      </div>
-    </form>
-  </div>
-</section>
-
-  </main>  <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <small>© <span id="year"></span> <span id="brandFoot">FreshClean Laundry</span>. Semua hak dilindungi.</small>
-      <div style="display:flex; gap:.6rem; align-items:center;">
-        <a class="btn" href="#home">Naik ↑</a>
-      </div>
-    </div>
-  </footer>  <script>
-    // ====== KONFIGURASI CEPAT ======
-    const CONFIG = {
-      brand: 'FreshClean Laundry',
-      // Logo dari catbox: upload file ke catbox.moe → pakai URL langsung (contoh: https://files.catbox.moe/abc123.png)
-      // Jika kosong, akan pakai logo bulat teks otomatis.
-      logoUrl: '',
-      // Nomor WhatsApp (gunakan 62…)
-      waNumber: '62812XXXXXXX',
-      waDefaultMsg: 'Halo, saya mau pesan layanan laundry.',
-      // Gambar dari catbox (ganti dengan milikmu)
-      images: {
-        hero: 'https://files.catbox.moe/placeholder-hero.jpg',
-        layanan1: 'https://files.catbox.moe/placeholder-layanan1.jpg',
-        layanan2: 'https://files.catbox.moe/placeholder-layanan2.jpg',
-        layanan3: 'https://files.catbox.moe/placeholder-layanan3.jpg',
-        layanan4: 'https://files.catbox.moe/placeholder-layanan4.jpg'
-      },
-      // Google Maps embed src (ambil dari Maps → Bagikan → Sematkan peta)
-      mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=PASTE_EMBED_CODE_DI_SINI'
-    };
-
-    // Tahun & Brand
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('brand').textContent = CONFIG.brand;
-    document.getElementById('brandFoot').textContent = CONFIG.brand;
-
-    // Logo
-    const logoImg = document.getElementById('logoImg');
-    const logoInitials = document.getElementById('logoInitials');
-    if (CONFIG.logoUrl) {
-      logoImg.src = CONFIG.logoUrl;
-      logoImg.style.display = 'block';
-      logoInitials.style.display = 'none';
-    } else {
-      // Buat inisial otomatis dari brand (teks bulat)
-      const initials = CONFIG.brand.split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
-      logoInitials.textContent = initials || 'LG';
+    /* Default maps height desktop */
+    #gmap {
+      width: 100%;
+      height: 60vh;
     }
+  </style>
+</head>
+<body>
+  <!-- isi header, main, footer tetap sama seperti file kamu -->
+  <!-- ... -->
 
-    // Gambar
-    const byId = id => document.getElementById(id);
-    const heroImg = byId('heroImg');
-    heroImg.src = CONFIG.images.hero;
-    byId('imgL1').src = CONFIG.images.layanan1;
-    byId('imgL2').src = CONFIG.images.layanan2;
-    byId('imgL3').src = CONFIG.images.layanan3;
-    byId('imgL4').src = CONFIG.images.layanan4;
+  <script>
+    // ====== KONFIGURASI CEPAT ======
+    const CONFIG = { /* isi tetap sama */ };
 
-    // Google Maps
-    const gmap = byId('gmap');
-    if (CONFIG.mapsEmbedSrc) gmap.src = CONFIG.mapsEmbedSrc;
+    // ... (isi script kamu tetap sama sampai bagian menu)
 
-    // Mobile menu
+    // Mobile menu fix pakai class open
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn?.addEventListener('click', () => {
-      const isOpen = getComputedStyle(navLinks).display !== 'none';
-      navLinks.style.display = isOpen ? 'none' : 'flex';
+      navLinks.classList.toggle('open');
     });
-    // Tutup menu setelah klik link
-    navLinks.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{
-      if (getComputedStyle(menuBtn).display !== 'none') navLinks.style.display = 'none';
-    }));
+    navLinks.querySelectorAll('a[href^="#"]').forEach(a =>
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      })
+    );
 
-    // Anchor WA
-    function waLink(msg=''){
-      const text = encodeURIComponent(msg || CONFIG.waDefaultMsg);
-      const num  = (CONFIG.waNumber || '').replace(/[^0-9+]/g,'');
-      return num ? https://wa.me/${num}?text=${text} : '#';
-    }
-    const waButtons = {
-      waTop: 'Halo, saya ingin tanya layanan laundry.',
-      waHero: 'Halo, mau order laundry antar-jemput.',
-      waPkg1: 'Halo, saya pilih paket Hemat.',
-      waPkg2: 'Halo, saya pilih paket Favorit.',
-      waPkg3: 'Halo, saya pilih paket Express.',
-      waContact: 'Halo, saya mau konsultasi laundry.'
-    };
-    Object.entries(waButtons).forEach(([id,msg])=>{ const el = byId(id); if (el) el.href = waLink(msg); });
-
-    // Scrollspy (highlight menu aktif saat scroll)
-    const sections = ['home','layanan','harga','lokasi','testimoni','kontak'].map(id=>document.getElementById(id));
-    const links = Array.from(document.querySelectorAll('.nav-links a')).filter(a=>a.getAttribute('href').startsWith('#'));
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        const id = entry.target.id;
-        const link = links.find(a=>a.getAttribute('href')==='#'+id);
-        if (link) link.style.textDecoration = entry.isIntersecting ? 'underline' : 'none';
-      });
-    },{rootMargin:'-40% 0px -55% 0px',threshold:0});
-    sections.forEach(sec=>sec && observer.observe(sec));
+    // ... (script lain tetap sama)
   </script>
 </body>
 </html>
