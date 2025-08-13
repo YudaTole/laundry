@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshClean Laundry</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8fafc; color:#333; }
+    header, section { padding: 20px; max-width: 1000px; margin: auto; }
+    header { background: #0ea5e9; color: white; text-align: center; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; }
+    h1,h2 { margin-top: 0; }
+    .services, .prices, .testimonials, .outlets { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .cta { background: #0ea5e9; color: white; padding: 10px; border-radius: 5px; text-align: center; display: inline-block; margin-top: 10px; }
+    iframe { width: 100%; border: none; border-radius: 10px; height: 300px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FreshClean Laundry</h1>
+    <nav>
+      <a href="#layanan">Layanan</a>
+      <a href="#harga">Harga</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>  <section id="layanan">
+    <h2>Layanan Kami</h2>
+    <div class="services">
+      <div class="card">Cuci Kiloan</div>
+      <div class="card">Antar-Jemput</div>
+      <div class="card">Setrika Rapi</div>
+      <div class="card">Express Service</div>
+    </div>
+  </section>  <section id="harga">
+    <h2>Harga Paket</h2>
+    <div class="prices">
+      <div class="card">Cuci Kiloan: Rp 8.000/kg</div>
+      <div class="card">Express: Rp 12.000/kg</div>
+      <div class="card">Setrika: Rp 5.000/kg</div>
+    </div>
+  </section>  <section id="lokasi">
+    <h2>Lokasi Kami</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen></iframe>
+  </section>  <section id="outlets">
+    <h2>Cabang Kami</h2>
+    <div class="outlets">
+      <div class="card">
+        <h3>FreshClean Laundry - Pusat</h3>
+        <p>Jl. Contoh No. 123, Kota A</p>
+        <p>WA: 628123456789</p>
+      </div>
+      <div class="card">
+        <h3>FreshClean Laundry - Cabang B</h3>
+        <p>Jl. Contoh No. 456, Kota B</p>
+        <p>WA: 628987654321</p>
+      </div>
+    </div>
+  </section>  <section id="testimoni">
+    <h2>Testimoni Pelanggan</h2>
+    <div class="testimonials">
+      <div class="card">"Pakaian jadi wangi dan rapi sekali!" - Andi</div>
+      <div class="card">"Pelayanan cepat dan ramah." - Budi</div>
+      <div class="card">"Harga terjangkau, kualitas top!" - Sari</div>
+    </div>
+  </section>  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <p>Pesan cepat via WhatsApp:</p>
+    <a class="cta" href="https://wa.me/628123456789">Pesan Sekarang</a>
+  </section>
+</body>
+</html>
